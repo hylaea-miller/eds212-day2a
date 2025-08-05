@@ -79,6 +79,11 @@ ggplot(data = penguins, aes(x = body_mass_g, y = flipper_length_mm)) +
        subtitle = "Palmer Archipelago, Antarctice (2007 - 2009)",
        caption = "Collected by Dr. Kristen Gorman and colleagues at Palmer Station LTER") +
   facet_wrap(~island) +
-  theme_minimal()
   
+  
+
+
+
+
+
   
