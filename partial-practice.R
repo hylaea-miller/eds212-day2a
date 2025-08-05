@@ -33,11 +33,12 @@ ggplot(data = my_data_range, aes(x = t)) +
   geom_function(fun = ct, color = "red") +
   geom_function(fun = dc_dt_fun, color ="blue")
 
-# partial derivatives
-# create the expression
-f_xyz <- D(expr = f_xyz, name = "x")
-df_dx
 
-df_dy <- D(expr = f_xyz, name = "z")
+# create the expression
+f_xyz <- expression(2 * x * y - 3 * x^2 * z^3)
+
+# partial derivatives
+
+df_dz <- D(expr = f_xyz, name = "z")
 df_dz
   
