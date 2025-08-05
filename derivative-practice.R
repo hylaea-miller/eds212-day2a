@@ -43,4 +43,42 @@ derivative
 
 
 derivative_2 <- D(expr = expression((2*y^3 + 1)^4 - 8*y^3), name = "y")
+dg_dz <- D(expr = derivative_2, name = "y")
 derivative_2
+
+#find the slope of T(y at a range of values)
+y <- seq(from = -0.4, to =2.0, by = 0.1)
+
+# Evaluate the slope of T(y) at each of those values ----
+eval(derivative_2)
+
+#one small change
+
+#plotting example
+
+library(ggplot2)
+library(palmerpenguins)
+
+ggplot(data = penguins, aes(x = body_mass_g, y = flipper_length_mm)) + geom_point(aes(color = species)) + 
+  scale_colour_manual(values = c("darkorange", "purple", "cyan4")) + labs(x = "Body mass (g)", 
+                                                                       y = "flipper lenght (mm)",
+                                                                       title = "palmer penguins size measurements",
+                                                                       subtitle = "Palmer penguins")
+
+# load libraries ----
+library(tidyverse)
+library(palmerpenguins)
+
+# create plot ----
+ggplot(data = penguins, aes(x = body_mass_g, y = flipper_length_mm)) +
+  geom_point(aes(color = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(x = "Body mass (g)",
+       y = "Flipper length (mm)",
+       title = "Palmer penguin size measurements",
+       subtitle = "Palmer Archipelago, Antarctice (2007 - 2009)",
+       caption = "Collected by Dr. Kristen Gorman and colleagues at Palmer Station LTER") +
+  facet_wrap(~island) +
+  theme_minimal()
+  
+  
